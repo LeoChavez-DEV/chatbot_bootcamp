@@ -1,12 +1,49 @@
-# Entorno virtual
+# ============================
+#  ENTORNO VIRTUAL
+# ============================
 venv/
+venv_new/
+env/
+env*/
+.venv/
 
-# Variables de entorno
+# ============================
+#  VARIABLES DE ENTORNO
+# ============================
 .env
+*.env
 
-# Archivos temporales de Python
+# ============================
+#  PYTHON
+# ============================
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.log
 
-# Config basura de sistema
+# ============================
+#  STREAMLIT
+# ============================
+.streamlit/
+
+# ============================
+#  CONFIG / SISTEMA
+# ============================
 .DS_Store
+Thumbs.db
+*.tmp
+
+# ============================
+#  EDITORES / IDEs
+# ============================
+.vscode/
+.idea/
+
+# ============================
+#  ARCHIVOS QUE NO SUBES
+# ============================
+stripe_logs/
+ngrok.log
