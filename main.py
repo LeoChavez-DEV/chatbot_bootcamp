@@ -21,9 +21,6 @@ load_dotenv()
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 APP_URL = os.getenv("APP_URL", "http://localhost:8501")
 
-# ============================================
-# SESIÓN
-# ============================================
 
 def start_session(username):
     st.session_state["username"] = username
@@ -36,18 +33,10 @@ def is_logged():
     return "username" in st.session_state
 
 
-# ============================================
-# STREAMLIT CONFIG
-# ============================================
-
 st.set_page_config(page_title="TIP_CHATBOT", layout="wide")
 st.title("TIP_CHATBOT ☠️")
 st.markdown("Chatbot con login + créditos + Stripe Checkout.")
 
-
-# ============================================
-# TIENDA / CHECKOUT
-# ============================================
 
 def create_checkout_session(username, credits_to_add, price_cents):
     session = stripe.checkout.Session.create(
@@ -80,11 +69,6 @@ def create_checkout_session(username, credits_to_add, price_cents):
     )
 
     return session
-
-
-# ============================================
-# SIDEBAR: LOGIN / REGISTRO / TIENDA
-# ============================================
 
 with st.sidebar:
     st.header("🧾 Cuenta")
@@ -142,9 +126,6 @@ with st.sidebar:
             st.rerun()
 
 
-# ============================================
-# CHATBOT
-# ============================================
 
 if is_logged():
 
