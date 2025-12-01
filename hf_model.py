@@ -9,6 +9,7 @@ def responder_hf(messages, temperature=0.7):
     if not HF_API_KEY:
         return "No hay clave de HuggingFace configurada."
 
+    # Convertir historial al formato del nuevo API
     convertidos = []
     for m in messages:
         if m.type == "human":
@@ -16,19 +17,18 @@ def responder_hf(messages, temperature=0.7):
         else:
             convertidos.append({"role": "assistant", "content": m.content})
 
-    url = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
+    url = "https://router.huggingface.co/v1/chat/completions"
 
     headers = {
         "Authorization": f"Bearer {HF_API_KEY}",
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
     }
 
     payload = {
-        "inputs": convertidos,
-        "parameters": {
-            "temperature": temperature,
-            "max_new_tokens": 256
-        },
+        "model": HF_MODEL,
+        "messages": convertidos,
+        "temperature": temperature,
+        "max_tokens": 256
     }
 
     resp = requests.post(url, headers=headers, json=payload)
@@ -39,6 +39,6 @@ def responder_hf(messages, temperature=0.7):
     data = resp.json()
 
     try:
-        return data[0]["generated_text"]
-    except:
-        return str(data)
+        return data["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"Error procesando respuesta HF: {e} — {data}"
