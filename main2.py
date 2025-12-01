@@ -10,7 +10,7 @@ load_dotenv()
 st.set_page_config(page_title="TIP_CHATBOT", layout="wide")
 st.title("TIP_CHATBOT")
 
-modelo = st.sidebar.selectbox("Modelo a usar:", ["gemini", "huggingface"])
+modelo = st.sidebar.selectbox("Modelo a usar:", ["gemini", "Llama-3.1"])
 
 temperatura = st.sidebar.slider(
     "Temperatura",
@@ -47,7 +47,7 @@ if pregunta:
             respuesta = llm.invoke(st.session_state.mensajes)
             texto = respuesta.content
 
-        elif modelo == "huggingface":
+        elif modelo == "Llama-3.1":
             from hf_model import responder_hf
             texto = responder_hf(st.session_state.mensajes, temperatura)
 
