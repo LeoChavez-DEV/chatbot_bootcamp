@@ -2,9 +2,7 @@ import os
 import requests
 
 HF_API_KEY = os.getenv("HF_API_KEY")
-
 HF_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
-
 
 def responder_hf(messages, temperature=0.7):
 
@@ -22,7 +20,7 @@ def responder_hf(messages, temperature=0.7):
 
     headers = {
         "Authorization": f"Bearer {HF_API_KEY}",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
     }
 
     payload = {
@@ -30,7 +28,7 @@ def responder_hf(messages, temperature=0.7):
         "parameters": {
             "temperature": temperature,
             "max_new_tokens": 256
-        }
+        },
     }
 
     resp = requests.post(url, headers=headers, json=payload)
