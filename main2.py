@@ -7,6 +7,11 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 load_dotenv()
 
+css_path = "styles.css"
+if os.path.exists(css_path):
+    with open(css_path, "r") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 st.set_page_config(page_title="TIP_CHATBOT", layout="wide")
 st.title("TIP_CHATBOT")
 

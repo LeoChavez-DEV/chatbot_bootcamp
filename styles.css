@@ -1,84 +1,28 @@
-
-h1 {
-    color: #1B263B;
-    text-align: center;
-    font-weight: 800;
-    margin-top: 25px;
+body {
+    background-color: #eef3fb !important;
 }
 
-header[data-testid="stHeader"] {
-    background-color: #83d2f4 !important;
-}
-
-/* Subtítulo */
-.subtitle {
-    font-size: 17px;
-    color: #415A77;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Sidebar */
 section[data-testid="stSidebar"] {
-    background-color: #01257D;
-    padding: 20px;
-    border-right: 2px solid #00FFFF;
+    background-color: #d9e7fa !important;
 }
 
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] label {
-    color: #E0E5EB !important;
+h1, h2, h3 {
+    color: #1a4d8f !important;
 }
 
-.stSelectbox div, .stSlider div {
-    color: #E0E5EB !important;
+.stChatMessage .stMarkdown {
+    background: #ffffff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 4px solid #2a7be4;
 }
 
-/* Slider */
-.stSlider > div > div > span[data-baseweb="slider"] > div {
-    background-color: #000000 !important;
-}
-
-/* Burbujas del chat */
-.stChatMessage {
-    border-radius: 12px !important;
-    padding: 12px !important;
-    color: #ffffff !important;
-}
-
-.stChatMessage[data-testid="stChatMessage-user"] {
-    background-color: #415A77 !important;
-}
-
-.stChatMessage[data-testid="stChatMessage-assistant"] {
-    background-color: #1B263B !important;
-}
-
-/* Input chat */
-.stChatInputContainer textarea {
-    background-color: #F7F9FB !important;
-    color: #1B263B !important;
-    border-radius: 12px !important;
-    border: 1px solid #bfc6d1 !important;
+input, textarea {
+    border: 1px solid #2a7be4 !important;
 }
 
 button[kind="primary"] {
-    background-color: #415A77 !important;
-    border-radius: 10px !important;
+    background: #2a7be4 !important;
     color: white !important;
+    border-radius: 6px !important;
 }
-
-/* Scroll */
-::-webkit-scrollbar {
-    width: 7px;
-}
-::-webkit-scrollbar-thumb {
-    background: #778DA9;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #415A77;
-}
-
-
